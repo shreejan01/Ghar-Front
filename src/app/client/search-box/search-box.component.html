@@ -1,0 +1,23 @@
+<div class="container">
+<div class="card mt-2">
+  <div class="card-body">
+    <h5 class="card-title">Filter By</h5>
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit">
+      <div class="row">
+        <div class="col mb-2">
+          <input type="search" class="form-control" placeholder="District">
+        </div>
+        <div class="col mb-2">
+          <input type="search" class="form-control" placeholder="location">
+        </div>
+        <div class="col ">
+          <input type="search" class="form-control" placeholder="Price">
+        </div>
+        <div class="col">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
