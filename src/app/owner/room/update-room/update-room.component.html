@@ -1,0 +1,62 @@
+<div class="container bg-light updateRoom">
+  <div class="row my-2">
+    <div class="col-md-3 col-sm-12 "></div>
+    <div class="col-md-6 col-sm-12 updateRm ">
+
+      <form [formGroup]="updateRoomForm" (ngSubmit)="updateRoomForm.valid && onSubmit()">
+        <div class="card-header text-center text-info font-weight-bold m-3 mb-4 title ">Update Room</div>
+        <div class="form-group">
+          <label >Id(*)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="id" placeholder="Enter room floor" disabled />
+        </div>
+        <div class="form-group">
+          <label >Floor (*)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="floor" placeholder="Enter room floor" [ngClass]="{'is-invalid': updateRoomForm.get('floor').touched && updateRoomForm.get('floor').invalid}"/>
+          <div *ngIf="updateRoomForm.get('floor').touched && updateRoomForm.get('floor').invalid" class="invalid-feedback">
+            <div *ngIf="updateRoomForm.get('floor').errors.required">Floor is required</div>
+            <div *ngIf="updateRoomForm.get('floor').errors.maxlength">Floor must be less than 10 characters</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label >Location (*) </label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="location" placeholder="Enter room location" [ngClass]="{'is-invalid': updateRoomForm.get('location').touched && updateRoomForm.get('location').invalid}"  />
+          <div *ngIf="updateRoomForm.get('location').touched && updateRoomForm.get('location').invalid" class="invalid-feedback">
+            <div *ngIf="updateRoomForm.get('location').errors.required">Location is required</div>
+            <div *ngIf="updateRoomForm.get('location').errors.minlength">location must be greater than 2 characters </div>
+            <div *ngIf="updateRoomForm.get('location').errors.maxlength">Location must less than 15 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Price (*) </label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="price" placeholder="Enter price" [ngClass]="{'is-invalid': updateRoomForm.get('price').touched && updateRoomForm.get('price').invalid}"  />
+          <div *ngIf="updateRoomForm.get('price').touched && updateRoomForm.get('price').invalid" class="invalid-feedback">
+            <div *ngIf="updateRoomForm.get('price').errors.required">Price is required</div>
+            <div *ngIf="updateRoomForm.get('price').errors.minlength">Price must be greater than 1 digit </div>
+            <div *ngIf="updateRoomForm.get('price').errors.maxlength">Last name must less than 9 digit</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Description (Alternative)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="description" placeholder="Enter room description"/>
+        </div>
+        <div class="form-group">
+          <label >Facilities (If any)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="facility" placeholder="Enter room facilities"/>
+        </div>
+        <div class="form-group">
+          <label >Rules (If any)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="rules" placeholder="Enter house rules"/>
+        </div>
+
+
+        <button type="submit" class="btn btn-info btn-block shadow mt-2 " [disabled]="!updateRoomForm.valid" >Update</button>
+      </form>
+    </div>
+    <div class="col-md-3 col-sm-12"></div>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+  </div>
+
+</div>

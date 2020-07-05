@@ -1,0 +1,65 @@
+<div class="container bg-light addApartment">
+  <div class="row my-1">
+    <div class="col-md-3 col-sm-12 "></div>
+    <div class="col-md-6 col-sm-12 addAt ">
+
+      <form [formGroup]="addApartmentForm" (ngSubmit)="addHouseForm.valid && onSubmit()">
+        <div class="card-header text-center text-info font-weight-bold m-3 mb-4 title ">Add Apartment</div>
+        <div class="form-group">
+          <label >Floors (*)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="floor" placeholder="Enter apartment floors" [ngClass]="{'is-invalid': addApartmentForm.get('floor').touched && addApartmentForm.get('floor').invalid}"/>
+          <div *ngIf="addApartmentForm.get('floor').touched && addApartmentForm.get('floor').invalid" class="invalid-feedback">
+            <div *ngIf="addApartmentForm.get('floor').errors.required">Floor is required</div>
+            <div *ngIf="addApartmentForm.get('floor').errors.maxlength">Floor must be less than 10 characters</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label >Location (*) </label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="location" placeholder="Enter Apartment location" [ngClass]="{'is-invalid': addApartmentForm.get('location').touched && addApartmentForm.get('location').invalid}"  />
+          <div *ngIf="addApartmentForm.get('location').touched && addHouseForm.get('location').invalid" class="invalid-feedback">
+            <div *ngIf="addApartmentForm.get('location').errors.required">Location is required</div>
+            <div *ngIf="addApartmentForm.get('location').errors.minlength">location must be greater than 2 characters </div>
+            <div *ngIf="addApartmentForm.get('location').errors.maxlength">Location must less than 15 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Price (*) </label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="price" placeholder="Enter price" [ngClass]="{'is-invalid': addApartmentForm.get('price').touched && addApartmentForm.get('price').invalid}"  />
+          <div *ngIf="addApartmentForm.get('price').touched && addApartmentForm.get('contactNo').invalid" class="invalid-feedback">
+            <div *ngIf="addApartmentForm.get('price').errors.required">Price is required</div>
+            <div *ngIf="addApartmentForm.get('price').errors.minlength">Price must be greater than 1 digit </div>
+            <div *ngIf="addApartmentForm.get('price').errors.maxlength">Price must less than 9 digit</div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <label >Size (*) </label>
+          <input type="size" class="form-control font-weight-lighter" formControlName="size" placeholder="Enter size of Apartment" [ngClass]="{'is-invalid': addApartmentForm.get('size').touched && addApartmentForm.get('size').invalid}" />
+          <div *ngIf="addApartmentForm.get('size').touched && addApartmentForm.get('email').invalid" class="invalid-feedback">
+            <div *ngIf="addApartmentForm.get('size').errors.required">Apartment size is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Facilities (If any)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="facility" placeholder="Enter Apartment facilities"/>
+        </div>
+        <div class="form-group">
+          <label >Description (Alterative)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="description" placeholder="Enter Apartment description"/>
+        </div>
+        <div class="form-group">
+          <label >Rules (If any)</label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="rules" placeholder="Enter Apartment rules"/>
+        </div>
+        <div class="form-group">
+          <label >Upload Pic (*)</label>
+          <div class="img bg-warning w-25">
+            <img src="" alt="" height="" width="">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-info btn-block shadow mt-2 " [disabled]="!addHouseForm.valid" >Post</button>
+      </form>
+    </div>
+    <div class="col-md-3 col-sm-12"></div>
+  </div>
+</div>

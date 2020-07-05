@@ -1,0 +1,59 @@
+<div class="container bg-light addBill">
+  <div class="row my-1">
+    <div class="col-md-3 col-sm-12 "></div>
+    <div class="col-md-6 col-sm-12 addBl ">
+
+      <form [formGroup]="addBillForm" (ngSubmit)="addBillForm.valid && onSubmit()">
+        <div class="card-header text-center text-info font-weight-bold m-3 mb-4 title ">Add Bill</div>
+        <div class="form-group">
+          <label > From (date *)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="dateFrom" placeholder="Enter room id to identify unique room" [ngClass]="{'is-invalid': addBillForm.get('dateFrom').touched && addBillForm.get('dateFrom').invalid}"/>
+          <div *ngIf="addBillForm.get('dateFrom').touched && addBillForm.get('dateFrom').invalid" class="invalid-feedback">
+            <div *ngIf="addBillForm.get('dateFrom').errors.required">From date is required</div>
+            </div>
+        </div>
+        <div class="form-group ">
+          <label> To (date *)(*) </label>
+          <input type="text" class="form-control font-weight-lighter" formControlName="clientName" placeholder="Enter client name of that room" [ngClass]="{'is-invalid': addClientForm.get('clientName').touched && addClientForm.get('clientName').invalid}"  />
+          <div *ngIf="addBillForm.get('dateFrom').touched && addBillForm.get('dateFrom').invalid" class="invalid-feedback">
+            <div *ngIf="addBillForm.get('dateFrom').errors.required">From date is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Room Rent Amount (RS. *)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="rentAmount" placeholder="Enter room rent amount" [ngClass]="{'is-invalid': addClientForm.get('rentAmount').touched && addClientForm.get('rentAmount').invalid}"/>
+          <div *ngIf="addClientForm.get('rentAmount').touched && addFlatForm.get('rentAmount').invalid" class="invalid-feedback">
+            <div *ngIf="addClientForm.get('rentAmount').errors.required">Rent Amount is required</div>
+            <div *ngIf="addClientForm.get('rentAmount').errors.maxlength">Rent Amount must be less than 6 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Drinking Water Amount (RS.)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="waterBill" placeholder="Enter water bill amount"/>
+          </div>
+        <div class="form-group">
+          <label >Electricity Amount (RS.)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="electricityBill" placeholder="Enter electricity bill amount"/>
+        </div>
+        <div class="form-group">
+          <label >Total bill Amount (RS.)</label>
+          <input type="text" class="form-control font-weight-lighter " formControlName="totalBill" placeholder="Enter total bill amount"/>
+        </div>
+        <div class="form-group">
+          <label >Status (*)</label>
+          <select class="form-control" formControlName="status" [ngClass]="{'is-invalid': addBillForm.get('status').touched && addBillForm.get('status').invalid}">
+            <option value="">Choose bill status</option>
+            <option value="owner">Unpaid</option>
+            <option value="client">Paid</option>
+          </select>
+          <div class="invalid-feedback">
+            <div>Status is required</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-info btn-block shadow mt-2 " [disabled]="!addBillForm.valid" >Send to Client</button>
+      </form>
+    </div>
+    <div class="col-md-3 col-sm-12"></div>
+  </div>
+</div>

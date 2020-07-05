@@ -1,0 +1,51 @@
+
+<div class="container my-5">
+  <button type="button" class="btn btn-small btn-outline-danger" (click)="addClient()">Add Client</button>
+
+  <hr/>
+  <router-outlet></router-outlet>
+  <div class="card text-center ">
+    <div class="card-header">
+      Clients
+    </div>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Room Id</th>
+        <th scope="col">Client Name</th>
+        <th scope="col">Settled Date</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td><a [routerLink]="['/client/record']">Check Bills</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>Jacob</td>
+
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</div>
+

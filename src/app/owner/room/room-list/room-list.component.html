@@ -1,0 +1,43 @@
+
+<div class="container my-5">
+  <div class="card text-center ">
+    <div class="card-header text-success font-weight-bolder ">
+      Room List
+    </div>
+    <table class="table table-bordered table-responsive">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Floor</th>
+        <th scope="col">Location</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Facility</th>
+        <th scope="col">Rules</th>
+         <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let room of allRooms">
+        <td>{{room.id}}</td>
+        <td>{{room.floor}}</td>
+        <td>{{room.location}}</td>
+        <td>{{room.price}}</td>
+        <td>{{room.description}}</td>
+        <td>{{room.facility}}</td>
+        <td>{{room.rules}}</td>
+        <td><button class="text-primary" (click)="updateRoom(room.id)">edit</button></td>
+        <td><button class="text-primary" (click)="deleteRoom(room.id)">delete</button></td>
+        <td><button class="text-primary" (click)="roomDetails(room.id)">details</button></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</div>
+
